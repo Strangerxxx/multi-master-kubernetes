@@ -45,8 +45,7 @@
     access_key: "{{ EXO_API_KEY }}"
     secret_key: "{{ EXO_API_SECRET }}"
     name: "{{ bucket_name }}"
-    region: "{{ region }}"
-    s3_url: "https://{{ EXO_SOS_ENDPOINT }}"
+    s3_url: "{{ EXO_SOS_ENDPOINT }}"
     ceph: true
 
 - template:

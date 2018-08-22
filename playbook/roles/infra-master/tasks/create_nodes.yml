@@ -7,7 +7,8 @@
     local_action:
       module: cs_instance
       display_name: "{{ cluster_name }}-master-{{ item }}"
-      template: "Linux CoreOS 1576 64-bit 10G Disk (2018-01-05-8856b8)"
+      template: "{{ master_template }}"
+      disk_size: "{{ master_disk_size }}"
       service_offering: "{{ master_instance_size }}"
       ssh_key: "{{ ssh_key }}"
       security_groups: [ '{{ master_security_group_name }}' ]

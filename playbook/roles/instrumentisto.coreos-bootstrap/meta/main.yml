@@ -1,0 +1,13 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: coreos-bootstrap
+  author: instrumentisto
+  description: Bootstrap CoreOS hosts to run Ansible
+  license: MIT
+  min_ansible_version: 1.4
+  galaxy_tags:
+    - system
+    - coreos
+    - python

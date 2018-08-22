@@ -27,7 +27,7 @@ spec:
            --peer-trusted-ca-file /etc/ssl/kubernetes-etcd/ca.pem \
            --peer-client-cert-auth \
            --data-dir /var/etcd/data-{{ ansible_hostname }}"
-      image: "gcr.io/google_containers/etcd:{{ k8s_etcd_version }}"
+      image: "quay.io/coreos/etcd:{{ k8s_etcd_version }}"
       imagePullPolicy: IfNotPresent
       livenessProbe:
         tcpSocket:

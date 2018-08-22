@@ -5,7 +5,7 @@ metadata:
   name: registry
   namespace: kube-system
 data:
-  config.yaml: |
+  config.yml: |
     ---
     version: 0.1
     health:
@@ -25,7 +25,7 @@ data:
       fields:
         service: registry
       formatter: text
-      level: info
+      level: debug
     storage:
       delete:
         enabled: true
@@ -38,11 +38,9 @@ data:
       s3:
         accesskey: "{{ EXO_API_KEY }}"
         secretkey: "{{ EXO_API_SECRET }}"
+        bucket: "{{ bucket_name }}"
         region: "{{ region }}"
         regionendpoint: "{{ EXO_SOS_ENDPOINT }}"
-        bucket: "{{ bucket_name }}"
-        secure: true
-        v4auth: false
         multipartcopythresholdsize: 5368709120
 ---
 apiVersion: extensions/v1beta1
@@ -59,11 +57,11 @@ spec:
     spec:
       containers:
       - name: registry
-        image: pst418/distribution:pr
-        args:
-        - serve
-        - /etc/registry/config.yaml
+        image: registry:2.6
         imagePullPolicy: IfNotPresent
+        env:
+          - name: GODEBUG
+            value: "http2client=0"
         resources:
           limits:
             cpu: 100m
@@ -86,14 +84,14 @@ spec:
         volumeMounts:
           - name: registry
             readOnly: true
-            mountPath: /etc/registry
+            mountPath: /etc/docker/registry
       volumes:
         - name: registry
           configMap:
             name: registry
             items:
-            - key: config.yaml
-              path: config.yaml
+            - key: config.yml
+              path: config.yml
 ---
 apiVersion: v1
 kind: Service

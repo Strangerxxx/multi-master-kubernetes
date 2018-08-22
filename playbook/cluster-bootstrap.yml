@@ -22,7 +22,7 @@
 - hosts: master_nodes, worker_nodes
   gather_facts: False
   roles:
-    - defunctzombie.coreos-bootstrap
+    - instrumentisto.coreos-bootstrap
 
 # Gather facts on all nodes
 - hosts: all

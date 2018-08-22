@@ -1,5 +1,6 @@
-ansible==2.4.3.0
-boto==2.48.0
-cs==2.1.3
-sshpubkeys==2.2.0
-httplib2==0.10.3
+ansible==2.6.3
+boto==2.49.0
+boto3==1.7.81
+cs==2.3.1
+sshpubkeys==3.1.0
+httplib2==0.11.3

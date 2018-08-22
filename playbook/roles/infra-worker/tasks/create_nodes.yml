@@ -11,7 +11,8 @@
     local_action:
       module: cs_instance
       display_name: "{{ item }}"
-      template: "Linux CoreOS 1576 64-bit 50G Disk (2018-01-05-8856b8)"
+      template: "{{ worker_template }}"
+      disk_size: "{{ worker_disk_size }}"
       service_offering: "{{ worker_instance_size }}"
       ssh_key: "{{ ssh_key }}"
       security_groups: [ '{{ worker_security_group_name }}' ]

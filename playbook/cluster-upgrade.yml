@@ -16,7 +16,7 @@
 - hosts: master_nodes
   tasks:
     - name: prefetch new etcd version
-      shell: "docker pull gcr.io/google_containers/etcd:{{ k8s_etcd_version }}"
+      shell: "docker pull quay.io/coreos/etcd:{{ k8s_etcd_version }}"
 
 - hosts: all
   tasks:

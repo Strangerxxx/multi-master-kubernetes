@@ -7,23 +7,28 @@ anti_affinity_group_name: "{{ cluster_name }}-aag"
 # master node variables
 master_security_group_name: "{{ cluster_name }}-master-sg"
 master_instance_size: Tiny
+master_template: "Linux CoreOS 1576 64-bit"
+master_disk_size: 10
 
 # worker node variables
 initial_num_worker_nodes: 3
 worker_security_group_name: "{{ cluster_name }}-worker-sg"
 worker_instance_size: Small
+worker_template: "Linux CoreOS 1576 64-bit"
+worker_disk_size: 50
+
 
 # exoip variables
 exoip_version: "latest"
 
 # kubernetes variables
-k8s_version: "v1.9.2_coreos.0"
-k8s_etcd_version: "3.3.0"
+k8s_version: "v1.10.5_coreos.0"
+k8s_etcd_version: "v3.3.9"
 cluster_dns: "10.100.0.10"
 service_cluster_ip_range: "10.100.0.0/16"
 
 # certificate variables
-cfssl_version: "1.3.0"
+cfssl_version: "R1.2"
 
 # ingress variables
 haproxy_version: latest
